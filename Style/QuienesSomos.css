@@ -14,12 +14,6 @@ body{
     background-color: whitesmoke;
 }
 
-.container {
-
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
 
 .header {
     
@@ -111,6 +105,69 @@ body{
     padding: 0 250px;
     margin-bottom: 25px;
 }
+
+.busqueda {
+
+    position: relative;
+
+
+}
+
+.botoncarrito {
+
+    background-color: #e1e2e6;
+    width: 31px;
+    height: 31px;
+    padding: 10px;
+}
+
+input {
+
+    padding: 5px;
+    padding-right: 25px;
+    border-radius: 5px 5px 5px  5px;
+    border: 0;
+    outline: none;
+    background-color: #e1e2e6;
+
+}
+
+.botonbuscar {
+
+    
+    background-color: #414247;
+    width: 31px;
+    height: 31px;
+    padding: 10px;
+}
+
+.botoncarrito {
+
+    background-color: #414247;
+    width: 31px;
+    height: 31px;
+    padding: 10px;
+}
+
+/**Boton Inicio y registro de cuenta **/
+
+.btn-datos {
+
+    background-color: #e1e2e6;
+    width: 120px;
+    height: 40px;
+    color: #414147;
+    text-align: center;
+    font-size: 16px;
+    border-radius: 8px;
+}
+
+.btn-1 a {
+
+    color: blue;
+    text-decoration: none;
+}
+
 
 /*BOTON*/
 
