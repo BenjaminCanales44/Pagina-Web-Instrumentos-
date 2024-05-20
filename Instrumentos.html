@@ -14,8 +14,21 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    
+    <script src="/Style/carrito.js"></script>
+    <script src="/Style/menu.js"></script>
+
+    <div id="carrito-content"></div>
+
     <header class="header">
+
+        <a href="/Instrumentos.html" class="btn-inicio"> 
+            <i class="icono-up">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                    <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm.53 5.47a.75.75 0 0 0-1.06 0l-3 3a.75.75 0 1 0 1.06 1.06l1.72-1.72v5.69a.75.75 0 0 0 1.5 0v-5.69l1.72 1.72a.75.75 0 1 0 1.06-1.06l-3-3Z" clip-rule="evenodd" />
+                </svg>
+            </i>
+        </a>
+
         <div class="menu container ">
 
             
@@ -43,24 +56,20 @@
                 <li><a href="#">Contacto</a></li>
             </ul>
 
-            <div class="container-icon">
-
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
-                </svg>
-
-            </div>
+            <div class="container-icon"></div>
 
             </nav>
 
-            <button class="btn-datos"><a href="/IniciarSesion.html">Iniciar Sesion</a></button>
-            <button class="btn-datos"><a href="/Registrarse.html">Registrarse</a></button>
+            <button ><a href="/IniciarSesion.html" class="btn-datos">Iniciar Sesion</a></button>
+            <button ><a href="/Registrarse.html" class="btn-datos">Registrarse</a></button>
 
-            <button>
-
+            <button id="btnAbrirCarrito" onclick="abrirCarrito()">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="botoncarrito">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
                 </svg>
+            </button>
+
+
 
             </button>
 
@@ -89,83 +98,114 @@
 
     </section>
 
+    <script>
+        // Función para agregar un producto al carrito
+        function agregarAlCarrito(nombre, precio) {
+            // Crear objeto de producto
+            var producto = {
+                nombre: nombre,
+                precio: precio
+            };
+
+            // Obtener el carrito de localStorage o inicializarlo si no existe
+            var carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+
+            // Agregar el producto al carrito
+            carrito.push(producto);
+
+            // Guardar el carrito actualizado en localStorage
+            localStorage.setItem('carrito', JSON.stringify(carrito));
+
+            // Mostrar mensaje de confirmación
+            alert('¡Producto agregado al carrito!');
+        }
+    </script>
+
 
     <main class="Compra" id="saxofon">
         <h2 >SAXOFÓN</h2 >
         
         <div class="contenedor-productos row" >
             <div class="col-md-6">
-                
+                    
                 <div class="card" style="width: 20rem;">
                     <img src="https://cdnx.jumpseller.com/musicchile/image/28392363/resize/450/450?1665663662" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Saxofón Alto Allegro Antique All6430An</h5>
                         <p class="card-text">Único en su clase, delicado, sencillo y ligero.</p>
                         <p> $499.900</p>
-                        <a href="#" class="btn btn-primary">Comprar</a>
+                        <!-- Agregar el botón "Comprar" con la llamada a la función agregarAlCarrito() -->
+                        <button onclick="agregarAlCarrito('Saxofón Alto Allegro Antique All6430An', 499900)" class="btn btn-primary">Comprar</button>
                     </div>
                 </div>
+                
 
                 <div class="col-md-6">
                     <div class="card" style="width: 20rem;">
                         <img src="Imagenes/saxofon.jpg" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">Saxofón Tenor Allegro Dorado All6435L</h5>
-                            <p class="card-text">Saxofón ligero con un tome mas elegante con esa capa dorada.</p>
+                            <p class="card-text">Saxofón ligero con un tono más elegante con esa capa dorada.</p>
                             <p>$599.900</p>
-                            <a href="#" class="btn btn-primary">Comprar</a>
+                            <!-- Botón "Comprar" -->
+                            <button onclick="agregarAlCarrito('Saxofón Tenor Allegro Dorado All6435L', 599900)" class="btn btn-primary">Comprar</button>
                         </div>
                     </div>
                 </div>
+                
 
                 <div class="col-md-6">
                     <div class="card" style="width: 20rem;">
                         <img src="https://cdnx.jumpseller.com/musicchile/image/28392459/resize/450/450?1665663845" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">Saxofón Tenor Allegro Dorado All6435L con bolso</h5>
-                            <p class="card-text">Saxofon con su bolso para tenerlo siempre seguro.</p>
+                            <p class="card-text">Saxofón con su bolso para tenerlo siempre seguro.</p>
                             <p>$679.990</p>
-                            <a href="#" class="btn btn-primary">Comprar</a>
+                            <!-- Botón "Comprar" -->
+                            <button onclick="agregarAlCarrito('Saxofón Tenor Allegro Dorado All6435L con bolso', 679990)" class="btn btn-primary">Comprar</button>
                         </div>
                     </div>
                 </div>
-
+                
                 <div class="col-md-6">
                     <div class="card" style="width: 20rem;">
-                        <img src="https://cdnx.jumpseller.com/musicchile/image/24265368/resize/900/900?1652947178 1x, https://cdnx.jumpseller.com/musicchile/image/24265368/resize/1080/1080?1652947178 2x" class="card-img-top" alt="...">
+                        <img src="https://cdnx.jumpseller.com/musicchile/image/24265368/resize/900/900?1652947178" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">Saxo Soprano Allegro Dorado All6433L</h5>
-                            <p class="card-text">Este se han convertido en el instrumento mas usado en varias partes del mundo.</p>
+                            <p class="card-text">Este se ha convertido en el instrumento más usado en varias partes del mundo.</p>
                             <p>$449.990</p>
-                            <a href="#" class="btn btn-primary">Comprar</a>
+                            <!-- Botón "Comprar" -->
+                            <button onclick="agregarAlCarrito('Saxo Soprano Allegro Dorado All6433L', 449990)" class="btn btn-primary">Comprar</button>
                         </div>
                     </div>
                 </div>
-
+                
                 <div class="col-md-6">
                     <div class="card" style="width: 20rem;">
-                        <img src="https://cdnx.jumpseller.com/musicchile/image/28411112/resize/900/900?1665689943 1x, https://cdnx.jumpseller.com/musicchile/image/28411112/resize/1080/1080?1665689943 2x" class="card-img-top" alt="...">
+                        <img src="https://cdnx.jumpseller.com/musicchile/image/28411112/resize/900/900?1665689943" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">Correa para Saxofón doble Allegro ALL-SX-LV3207BK</h5>
-                            <p class="card-text">Tanto como para saxofón de cualquier tipo ya sea alto, soprano y tenor.</p>
+                            <p class="card-text">Tanto para saxofón de cualquier tipo ya sea alto, soprano y tenor.</p>
                             <p>$14.990</p>
-                            <a href="#" class="btn btn-primary">Comprar</a>
+                            <!-- Botón "Comprar" -->
+                            <button onclick="agregarAlCarrito('Correa para Saxofón doble Allegro ALL-SX-LV3207BK', 14990)" class="btn btn-primary">Comprar</button>
                         </div>
                     </div>
                 </div>
-
+                
                 <div class="col-md-6">
                     <div class="card" style="width: 20rem;">
                         <img src="https://cdnx.jumpseller.com/musicchile/image/42829881/resize/900/900?1701297342" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">Correa para Saxofón ALL-SXBK-01</h5>
-                            <p class="card-text">Un poco mas pequeño pero para de cualquier tipo ya sea alto, soprano y tenor.</p>
+                            <p class="card-text">Un poco más pequeño pero para de cualquier tipo ya sea alto, soprano y tenor.</p>
                             <p>$7.490</p>
-                            <a href="#" class="btn btn-primary">Comprar</a>
+                            <!-- Botón "Comprar" -->
+                            <button onclick="agregarAlCarrito('Correa para Saxofón ALL-SXBK-01', 7490)" class="btn btn-primary">Comprar</button>
                         </div>
                     </div>
                 </div>
-
+                
                 <div class="col-md-6">
                     <div class="card" style="width: 20rem;">
                         <img id="first-image" class="trsn w-100" src="https://cdnx.jumpseller.com/musicchile/image/28411071/resize/900/900?1665689892" srcset="https://cdnx.jumpseller.com/musicchile/image/28411071/resize/900/900?1665689892 1x, https://cdnx.jumpseller.com/musicchile/image/28411071/resize/1080/1080?1665689892 2x" alt="Correa para Saxofón Allegro Negro ALL-SXPL-BK" title="Correa para Saxofón Allegro Negro ALL-SXPL-BK">
@@ -173,7 +213,8 @@
                             <h5 class="card-title">Correa para Saxofón Allegro Negro ALL-SXPL-BK</h5>
                             <p class="card-text">Tanto como para saxofón de cualquier tipo ya sea alto, soprano y tenor.</p>
                             <p>$9.990</p>
-                            <a href="#" class="btn btn-primary">Comprar</a>
+                            <!-- Botón "Comprar" -->
+                            <button onclick="agregarAlCarrito('Correa para Saxofón Allegro Negro ALL-SXPL-BK', 9990)" class="btn btn-primary">Comprar</button>
                         </div>
                     </div>
                 </div>
@@ -188,16 +229,18 @@
         
         <div class="contenedor-productos row" >
             <div class="col-md-6">
-                
+                    
                 <div class="card" style="width: 20rem;">
                     <img src="https://cdnx.jumpseller.com/musicchile/image/24298471/resize/900/900?1653051516" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Guitarra Eléctrica XGTR Negra JE212-BK</h5>
                         <p class="card-text">Diseñada para aquellos nuevos talentos que desean adentrarse en el apasionante mundo de la música con estilo.</p>
-                        <p> $209.900</p>
-                        <a href="#" class="btn btn-primary">Comprar</a>
+                        <p>$209.900</p>
+                        <!-- Botón "Comprar" -->
+                        <button onclick="agregarAlCarrito('Guitarra Eléctrica XGTR Negra JE212-BK', 209900)" class="btn btn-primary">Comprar</button>
                     </div>
                 </div>
+                
 
                 <div class="col-md-6">
                     <div class="card" style="width: 20rem;">
@@ -206,10 +249,12 @@
                             <h5 class="card-title">Guitarra Eléctrica Danelectro 64 Red</h5>
                             <p class="card-text">Es más que un instrumento; es un tributo a la época dorada del rock 'n' roll.</p>
                             <p>$799.900</p>
-                            <a href="#" class="btn btn-primary">Comprar</a>
+                            <!-- Botón "Comprar" -->
+                            <button onclick="agregarAlCarrito('Guitarra Eléctrica Danelectro 64 Red', 799900)" class="btn btn-primary">Comprar</button>
                         </div>
                     </div>
                 </div>
+                
 
                 <div class="col-md-6">
                     <div class="card" style="width: 20rem;">
@@ -218,10 +263,12 @@
                             <h5 class="card-title">Guitarra Eléctrica Danelectro 64 Dark Aqua</h5>
                             <p class="card-text">Es la reproducción del clásico de los años 60 que siempre quisiste. </p>
                             <p>$799.990</p>
-                            <a href="#" class="btn btn-primary">Comprar</a>
+                            <!-- Botón "Comprar" -->
+                            <button onclick="agregarAlCarrito('Guitarra Eléctrica Danelectro 64 Dark Aqua', 799990)" class="btn btn-primary">Comprar</button>
                         </div>
                     </div>
                 </div>
+                
 
                 <div class="col-md-6">
                     <div class="card" style="width: 20rem;">
@@ -230,10 +277,12 @@
                             <h5 class="card-title">Caja De Uñetas Dxd</h5>
                             <p class="card-text">Marca: Steve Clayton <br> Origen: USA <br> Modelo: DXD <br>Material: Duraplex Derlin</p>
                             <p>$59.990</p>
-                            <a href="#" class="btn btn-primary">Comprar</a>
+                            <!-- Botón "Comprar" -->
+                            <button onclick="agregarAlCarrito('Caja De Uñetas Dxd', 59990)" class="btn btn-primary">Comprar</button>
                         </div>
                     </div>
                 </div>
+                
 
                 <div class="col-md-6">
                     <div class="card" style="width: 20rem;">
@@ -242,7 +291,8 @@
                             <h5 class="card-title">Atril Universal horizontal para guitarra y bajo Taurus TAU-018B</h5>
                             <p class="card-text">Para músicos que buscan versatilidad y diseño en un solo paquete, el Atril Universal Horizontal para Guitarra y Bajo Taurus</p>
                             <p>$9.990</p>
-                            <a href="#" class="btn btn-primary">Comprar</a>
+                            <!-- Botón "Comprar" -->
+                            <button onclick="agregarAlCarrito('Atril Universal horizontal para guitarra y bajo Taurus TAU-018B', 9990)" class="btn btn-primary">Comprar</button>
                         </div>
                     </div>
                 </div>
@@ -256,63 +306,70 @@
         <h2 >Violin</h2 >
         
         <div class="contenedor-productos row" >
+            <div class="card" style="width: 20rem;">
+                <img src="https://cdnx.jumpseller.com/musicchile/image/46042761/resize/900/900?1709433679" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Violín Outfit 1/4' HV-50 Cervini</h5>
+                    <p class="card-text">El violín Cervini viene completo con un estuche liviano y duradero.</p>
+                    <p>$79.900</p>
+                    <!-- Botón "Comprar" -->
+                    <button onclick="agregarAlCarrito('Violín Outfit 1/4\' HV-50 Cervini', 79900)" class="btn btn-primary">Comprar</button>
+                </div>
+            </div>
+            
+
             <div class="col-md-6">
-                
                 <div class="card" style="width: 20rem;">
-                    <img src="https://cdnx.jumpseller.com/musicchile/image/46042761/resize/900/900?1709433679" class="card-img-top" alt="...">
+                    <img src="https://cdnx.jumpseller.com/musicchile/image/46042799/resize/900/900?1709433874" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title">Violín Outfit 1/4' HV-50 Cervini</h5>
-                        <p class="card-text">El violín Cervini viene completo con un estuche liviano y duradero.</p>
-                        <p> $79.900</p>
-                        <a href="#" class="btn btn-primary">Comprar</a>
+                        <h5 class="card-title">Violín Outfit 4/4' SV-150 Cremona</h5>
+                        <p class="card-text">La Serie Premier Student combina diseños tradicionales con especificaciones de alto nivel.</p>
+                        <p>$299.900</p>
+                        <!-- Botón "Comprar" -->
+                        <button onclick="agregarAlCarrito('Violín Outfit 4/4\' SV-150 Cremona', 299900)" class="btn btn-primary">Comprar</button>
                     </div>
                 </div>
+            </div>
+            
 
-                <div class="col-md-6">
-                    <div class="card" style="width: 20rem;">
-                        <img src="https://cdnx.jumpseller.com/musicchile/image/46042799/resize/900/900?1709433874" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Violín Outfit 4/4' SV-150 Cremona</h5>
-                            <p class="card-text">La Serie Premier Student combina diseños tradicionales con especificaciones de alto nivel.</p>
-                            <p>$299.900</p>
-                            <a href="#" class="btn btn-primary">Comprar</a>
-                        </div>
+            <div class="col-md-6">
+                <div class="card" style="width: 20rem;">
+                    <img src="https://cdnx.jumpseller.com/musicchile/image/46042799/resize/900/900?1709433874" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Violín Outfit 1/2' HV-100 Cervini</h5>
+                        <p class="card-text">Este conjunto ofrece un equilibrio entre materiales de calidad y accesorios esenciales, haciéndolo ideal para músicos que buscan un instrumento confiable y accesible.</p>
+                        <p>$109.900</p>
+                        <!-- Agregar el atributo onclick con la función agregarAlCarrito -->
+                        <a href="#" class="btn btn-primary" onclick="agregarAlCarrito('Violín Outfit 1/2\' HV-100 Cervini', 109900)">Comprar</a>
                     </div>
                 </div>
+            </div>
+            
 
-                <div class="col-md-6">
-                    <div class="card" style="width: 20rem;">
-                        <img src="https://cdnx.jumpseller.com/musicchile/image/46042799/resize/900/900?1709433874" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Violín Outfit 1/2' HV-100 Cervini</h5>
-                            <p class="card-text">Este conjunto ofrece un equilibrio entre materiales de calidad y accesorios esenciales, haciéndolo ideal para músicos que buscan un instrumento confiable y accesible..</p>
-                            <p>$109.900</p>
-                            <a href="#" class="btn btn-primary">Comprar</a>
-                        </div>
+            <div class="col-md-6">
+                <div class="card" style="width: 20rem;">
+                    <img src="https://cdnx.jumpseller.com/musicchile/image/46042799/resize/900/900?1709433874" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Violín Outfit 1/2' HV-100 Cervini</h5>
+                        <p class="card-text">Este conjunto ofrece un equilibrio entre materiales de calidad y accesorios esenciales, haciéndolo ideal para músicos que buscan un instrumento confiable y accesible.</p>
+                        <p>$109.900</p>
+                        <!-- Botón "Comprar" -->
+                        <button onclick="agregarAlCarrito('Violín Outfit 1/2\' HV-100 Cervini', 109900)" class="btn btn-primary">Comprar</button>
                     </div>
                 </div>
-
-                <div class="col-md-6">
-                    <div class="card" style="width: 20rem;">
-                        <img src="https://cdnx.jumpseller.com/musicchile/image/46042819/resize/900/900?1709433965" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Violín Outfit 4/4' SV-130 Cremona</h5>
-                            <p class="card-text">Para el estudiante principiante que necesita un instrumento con características ligeramente de mayor calidad.</p>
-                            <p>$269.990</p>
-                            <a href="#" class="btn btn-primary">Comprar</a>
-                        </div>
-                    </div>
-                </div>
+            </div>
+            
 
 
-                <div class="col-md-6">
-                    <div class="card" style="width: 20rem;">
-                        <img src="https://cdnx.jumpseller.com/musicchile/image/46042809/resize/900/900?1709433922" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Violín Outfit 4/4' SV-1600 Cremona</h5>
-                            <p class="card-text">Las conjuntos de violín de la serie Maestro están diseñados específicamente para satisfacer las necesidades de los estudiantes</p>
-                            <p>$979.990</p>
-                            <a href="#" class="btn btn-primary">Comprar</a>
+            <div class="col-md-6">
+                <div class="card" style="width: 20rem;">
+                    <img src="https://cdnx.jumpseller.com/musicchile/image/46042809/resize/900/900?1709433922" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Violín Outfit 4/4' SV-1600 Cremona</h5>
+                        <p class="card-text">Las conjuntos de violín de la serie Maestro están diseñados específicamente para satisfacer las necesidades de los estudiantes</p>
+                        <p>$979.990</p>
+                        <!-- Botón "Comprar" -->
+                        <button onclick="agregarAlCarrito('Violín Outfit 4/4\' SV-1600 Cremona', 979990)" class="btn btn-primary">Comprar</button>
                         </div>
                     </div>
                 </div>
@@ -434,6 +491,43 @@
         </div>
 
     </footer>
+
+    <script>
+    function abrirCarrito() {
+    var carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+    var carritoContent = document.getElementById('carrito-content');
+    carritoContent.innerHTML = '';
+    carrito.forEach(function(producto, index) {
+        var productoElemento = document.createElement('p');
+        productoElemento.textContent = producto.nombre + ' - ' + producto.precio;
+        
+        // Botón para eliminar el producto del carrito
+        var btnEliminar = document.createElement('button');
+        btnEliminar.textContent = 'Eliminar';
+        btnEliminar.className = 'btnEliminar';
+        btnEliminar.onclick = function() {
+            eliminarProducto(index);
+        };
+        productoElemento.appendChild(btnEliminar);                    
+        carritoContent.appendChild(productoElemento);
+    });
+    }
+            
+        function eliminarProducto(index) {
+            var carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            carrito.splice(index, 1);
+            localStorage.setItem('carrito', JSON.stringify(carrito));
+            abrirCarrito(); // Actualiza el contenido del carrito después de eliminar un producto
+        }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl5+2a5LOJqil3FM4idMOqI2ycpGyCt2W0wDZFE0Tf" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ZEEQtOZtueC0Mx0jWEto2QR8UJS7bJ28/Ypnbzuk8stAn4NQ4p4/Nf+6Ygw3Bn6D" crossorigin="anonymous"></script>
+    <script src="carrito.js"></script>
+    <script src="menu.js"></script>
+    <script>
+            document.getElementById("btnAbrirCarrito").addEventListener("click", abrirCarrito);
+    </script>
+
 
 
 </body>
